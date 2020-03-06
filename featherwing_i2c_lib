@@ -1,0 +1,51 @@
+//This is the JS code to control the Adafruit Featherwing Motor Driver over I2C commands
+//Created by Garnet Tanner
+
+let reg_Mode1 = new Array(2);
+	reg_Mode1[0] = 0x00;
+	reg_Mode1[1] = 0x00;
+
+let reg_pwm4onL = new Array(2);
+  reg_pwm4onL[0] = 0x16;
+  reg_pwm4onL[1] = 0xFF;
+	
+let reg_pwm4onH = new Array(2);
+  reg_pwm4onH[0] = 0x17;
+  reg_pwm4onH[1] = 0x0F;
+	
+let reg_pwm4offL = new Array(2);
+  reg_pwm4offL[0] = 0x18;
+  reg_pwm4offL[1] = 0x00;
+	
+let reg_pwm4offH = new Array(2);
+	reg_pwm4offH[0] = 0x19;
+	reg_pwm4offH[1] = 0x00;
+	
+I2C.let motorAddress = 0x80;
+I2C.write(motorAddress, reg_Mode1);
+
+I2C.write(motorAddress, reg_pwm4onL);
+I2C.write(motorAddress, reg_pwm4onH);
+I2C.write(motorAddress, reg_pwm4offL);
+I2C.write(motorAddress, reg_pwm4offH);
+
+let reg_pwm3onL = new Array(2);
+  reg_pwm3onL[0] = 0x12;
+  reg_pwm3onL[1] = 0x00;
+	
+let reg_pwm3onH = new Array(2);
+  reg_pwm3onH[0] = 0x13;
+  reg_pwm3onH[1] = 0x00;
+	
+let reg_pwm3offL = new Array(2);
+  reg_pwm3offL[0] = 0x14;
+  reg_pwm3offL[1] = 0xFF;
+	
+let reg_pwm3offH = new Array(2);
+	reg_pwm3offH[0] = 0x15;
+	reg_pwm3offH[1] = 0x0F;
+
+I2C.write(motorAddress, reg_pwm3onL);
+I2C.write(motorAddress, reg_pwm3onH);
+I2C.write(motorAddress, reg_pwm3offL);
+I2C.write(motorAddress, reg_pwm3offH);
